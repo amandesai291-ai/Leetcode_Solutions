@@ -10,13 +10,26 @@
  */
 
  class Solution {
+
+    public ListNode reverseList(ListNode head) {
+
+        if(head == null || head.next == null) return head;
+        ListNode a = head.next;
+        head.next = null;
+        ListNode b = reverseList(a);
+        a.next = head;
+        return b;
+    }
+
+
+    /*
+
     public ListNode reverseList(ListNode head) {
 
         ListNode curr = head;
         ListNode prev = null;
         ListNode fwd = null;
-        
-// 1 2 3 4 5 
+
         while(curr != null)
         {
             fwd = curr.next;
@@ -28,9 +41,9 @@
         return prev;
 
     }
- }
- /*
-class Solution {
+    */
+
+    /*
     public ListNode reverseList(ListNode head) {
         
         if(head == null || head.next == null) return head;
@@ -51,4 +64,5 @@ class Solution {
         arr.get(0).next = null;
         return arr.get(n-1);
     }
-}*/
+    */
+}
